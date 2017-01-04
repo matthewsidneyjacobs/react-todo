@@ -1,7 +1,9 @@
 var React = require('react');
-var Todo = require('Todo');
+var {connect} = require('react-redux');
+import Todo from 'Todo';
+// var Todo = require('Todo');
 
-var TodoList = React.createClass({
+export var TodoList = React.createClass({
   render: function() {
     var {todos} = this.props;
     var renderTodos = () => {
@@ -12,7 +14,9 @@ var TodoList = React.createClass({
       }
       return todos.map((todo) => {
         return (
-          <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
+
+          <Todo key={todo.id} {...todo}/>
+          // <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
           //we need todo.id because react needs to be able to keep track of every item.
           //this ... is called the spread operator. it takes every attribute from todo and passes it down as a prop.
         )
@@ -26,4 +30,20 @@ var TodoList = React.createClass({
   }
 });
 
-module.exports = TodoList;
+// module.exports = TodoList;
+
+export default connect(
+  (state) => {
+    return {
+      todos: state.todos
+    };
+  }
+)(TodoList);
+
+// module.exports = connect(
+//   (state) => {
+//     return {
+//       todos: state.todos
+//     };
+//   }
+// )(TodoList);
