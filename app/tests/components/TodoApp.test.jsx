@@ -27,6 +27,7 @@ describe('TodoApp', () => {
 
     expect(todoList.length).toEqual(1);
   });
+});
 
   // it('should add todo to the todos state on handleAddTodo', () => {
   //   var todoText = 'destroy enemies';
@@ -82,4 +83,4 @@ describe('TodoApp', () => {
   //   //expect completedAt to be a number
   //   expect(todoApp.state.todos[0].completedAt).toNotExist();
   // });
-})
+// })
